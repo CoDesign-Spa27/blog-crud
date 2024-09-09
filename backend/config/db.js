@@ -1,12 +1,13 @@
 const { Sequelize } = require('sequelize');
 const dotenv = require('dotenv')
+dotenv.config()
+
 // const sequelize = new Sequelize({
 //   dialect: 'sqlite',
 //   storage: './database.sqlite', 
 // });
  
 
-dotenv.config()
 
 // using postgres because sqllite cannot be deployed
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
