@@ -10,17 +10,18 @@ const page = () => {
   const [isLoading,setIsLoading] = useState(false)
 
   useEffect(() => {
-    setIsLoading(true)
-    try {
-      axiosInstance.get("/posts").then((res) => {
+    setIsLoading(true);
+    axiosInstance.get("/posts")
+      .then((res) => {
         setPosts(res.data);
         console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false); 
       });
-    } catch (err) {
-      console.log(err);
-    }finally{
-      setIsLoading(false)
-    }
   }, []);
 
   const handleDelete = (id) => {
