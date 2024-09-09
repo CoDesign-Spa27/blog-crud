@@ -7,6 +7,7 @@ const dotenv = require('dotenv')
  
 
 dotenv.config()
+
 // using postgres because sqllite cannot be deployed
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',
